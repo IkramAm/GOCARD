@@ -1,0 +1,358 @@
+.section {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 80px 24px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ----- Bloc texte (specs: width 721px, height 103, gap 56px) ----- */
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 721px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+
+.label {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0.12em;
+  text-align: center;
+  background: linear-gradient(0deg, #f5f7fa, #f5f7fa),
+    linear-gradient(108.75deg, #b7c1d4 18.8%, #5f646e 118.12%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #f5f7fa;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: #f5f7fa;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: min(351px, 100%);
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+  text-align: center;
+  background: linear-gradient(0deg, #6e7378, #6e7378),
+    linear-gradient(115.41deg, #b7c1d4 17.07%, #5f646e 85.74%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #6e7378;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* ----- Zone vidéo ----- */
+.videoWrapper {
+  width: 100%;
+  min-width: 0;
+  max-width: 900px;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.videoPlaceholder {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(180deg, rgba(50, 53, 56, 0) 0%, rgba(140, 149, 158, 0) 100%),
+    linear-gradient(78.59deg, rgba(219, 232, 255, 0.11) 29.57%, rgba(103, 123, 161, 0.11) 83.21%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playButton {
+  position: relative;
+  width: 145px;
+  height: 146px;
+  border-radius: 111px;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: linear-gradient(115.41deg, rgba(219, 232, 255, 0.05) 46.45%, rgba(103, 123, 161, 0.05) 85.74%);
+  transition: transform 0.2s ease;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(245, 247, 250, 0.06) inset;
+}
+
+.playButton:hover {
+  transform: scale(1.05);
+}
+
+.playInner {
+  position: relative;
+  width: 95px;
+  height: 96px;
+  border-radius: 111px;
+  background: linear-gradient(180deg, #2b2c30 0%, #494a51 100%);
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+/* Bordure gradient qui suit le cercle (border-image ne respecte pas bien border-radius) */
+.playInner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    162.61deg,
+    rgba(90, 90, 90, 0.0154) 2.8%,
+    rgba(255, 255, 255, 0.77) 41.22%,
+    rgba(0, 0, 0, 0) 80.82%,
+    rgba(255, 255, 255, 0.0154) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.playTriangle {
+  width: 25px;
+  height: 28px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #ffffff 17.86%, #d0d0d0 80.36%);
+  clip-path: polygon(0 0, 0 100%, 100% 50%);
+  transform: translateX(2px);
+}
+
+/* ----- Thumbnails ----- */
+.thumbnails {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  max-width: 900px;
+  padding: 0 24px;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.thumbnail {
+  flex: 1;
+  min-width: 0;
+  max-width: 280px;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(180deg, rgba(50, 53, 56, 0) 0%, rgba(140, 149, 158, 0) 100%),
+    linear-gradient(78.59deg, rgba(219, 232, 255, 0.11) 29.57%, rgba(103, 123, 161, 0.11) 83.21%);
+  border-radius: 12px;
+}
+
+/* ----- Tablet (≤ 1024px) ----- */
+@media (max-width: 1024px) {
+  .section {
+    padding: 64px 24px 80px;
+    gap: 40px;
+  }
+
+  .textBlock {
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .videoWrapper {
+    padding: 0 20px;
+  }
+
+  .playButton {
+    width: 120px;
+    height: 121px;
+    border-radius: 999px;
+  }
+
+  .playInner {
+    width: 78px;
+    height: 79px;
+    border-radius: 999px;
+  }
+
+  .playTriangle {
+    width: 20px;
+    height: 22px;
+    transform: translateX(1.5px);
+  }
+
+  .thumbnails {
+    padding: 0 20px;
+    gap: 12px;
+  }
+
+  .thumbnail {
+    max-width: 240px;
+  }
+}
+
+/* ----- Tablet small / large phone (≤ 768px) ----- */
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 16px 64px;
+    gap: 32px;
+  }
+
+  .textBlock {
+    gap: 20px;
+    padding: 0 12px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+
+  .videoWrapper {
+    padding: 0 16px;
+  }
+
+  .videoPlaceholder {
+    border-radius: 10px;
+  }
+
+  .playButton {
+    width: 100px;
+    height: 101px;
+    border-radius: 999px;
+  }
+
+  .playInner {
+    width: 65px;
+    height: 66px;
+    border-radius: 999px;
+  }
+
+  .playTriangle {
+    width: 16px;
+    height: 18px;
+    transform: translateX(1px);
+  }
+
+  .thumbnails {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .thumbnail {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+/* ----- Phone (≤ 480px) ----- */
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 12px 56px;
+    gap: 28px;
+  }
+
+  .textBlock {
+    padding: 0 8px;
+    gap: 16px;
+  }
+
+  .label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+
+  .videoWrapper {
+    padding: 0 12px;
+  }
+
+  .videoPlaceholder {
+    border-radius: 8px;
+  }
+
+  .playButton {
+    width: 88px;
+    height: 89px;
+    border-radius: 999px;
+  }
+
+  .playInner {
+    width: 58px;
+    height: 59px;
+    border-radius: 999px;
+  }
+
+  .playTriangle {
+    width: 14px;
+    height: 16px;
+    transform: translateX(1px);
+  }
+
+  .thumbnails {
+    padding: 0 12px;
+    gap: 10px;
+  }
+
+  .thumbnail {
+    border-radius: 8px;
+  }
+}

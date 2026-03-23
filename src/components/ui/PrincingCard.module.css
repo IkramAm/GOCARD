@@ -1,0 +1,426 @@
+/* Optional badge above card (e.g. "MOST POPULAR") – badge en absolu pour aligner la carte avec Basic */
+.cardOuter {
+  position: relative;
+  width: min(344px, 100%);
+  margin-inline: auto;
+  flex: 0 0 auto;
+}
+
+.badge {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: -14px;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  width: 114px;
+  height: 28px;
+  box-sizing: border-box;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 22px;
+  background: #3c3c3c;
+  opacity: 1;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 22px;
+  background: linear-gradient(
+    162.61deg,
+    rgba(90, 90, 90, 0) 2.8%,
+    #ffffff 41.22%,
+    rgba(0, 0, 0, 0) 80.82%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.badgeStar {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #ffffff;
+  text-shadow: 0px 0px 2.1px #ffffff, 0px 0px 8.4px #ffffff;
+  flex-shrink: 0;
+}
+
+.badgeLabel {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* Wrapper for gradient border (border-image ignores border-radius) */
+.cardWrapper {
+  width: 100%;
+  height: 624px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0px 4px 33px 0px #00000040;
+}
+
+.cardWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 10px;
+  background: linear-gradient(
+    162.61deg,
+    rgba(90, 90, 90, 0) 2.8%,
+    rgba(255, 255, 255, 0.55) 25.67%,
+    rgba(0, 0, 0, 0) 52.34%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 17px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: radial-gradient(
+      166.67% 78.1% at 50% 21.9%,
+      rgba(255, 255, 255, 0.33) 0%,
+      rgba(255, 255, 255, 0.11) 28.58%,
+      rgba(255, 255, 255, 0.02) 83.09%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22));
+  opacity: 1;
+  position: relative;
+  z-index: 0;
+}
+
+/* Header: plan name + price */
+.header {
+  width: 100%;
+  min-height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  opacity: 1;
+}
+
+.planName {
+  margin: 0;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: #f5f7fa;
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.price {
+  margin: 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: 0.05em;
+  text-align: right;
+  vertical-align: middle;
+  color: #ffffff;
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.45))
+    drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35));
+}
+
+.oldPriceBadge {
+  width: 61px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  background: #ffffff;
+  opacity: 1;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+  vertical-align: middle;
+  text-decoration: line-through;
+  color: #000000;
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.45))
+    drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35));
+}
+
+/* GoCard preview inside the pricing card */
+.cardPreview {
+  width: 100%;
+  min-height: 184px;
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  opacity: 1;
+  position: relative;
+  border-radius: 10px;
+  padding: 16px 16px;
+  box-sizing: border-box;
+  background: radial-gradient(
+      52.72% 52.72% at 50% 47.28%,
+      #2b2b2b 0%,
+      #111111 100%
+    ),
+    linear-gradient(
+      120.1deg,
+      rgba(21, 21, 21, 0) 75.6%,
+      #2b2b2b 100%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+}
+
+.cardPreview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 10px;
+  background: linear-gradient(
+    158.61deg,
+    rgba(0, 0, 0, 0.77) 9.86%,
+    rgba(255, 255, 255, 0.77) 36.93%,
+    rgba(255, 255, 255, 0.0693) 73.6%,
+    rgba(0, 0, 0, 0.77) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.cardPreviewContent {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 0;
+}
+
+.cardPreviewLogo {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.cardPreviewLogoPlaceholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 28px;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.cardPreviewName {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.cardPreviewTitle {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* Features list */
+.featuresBlock {
+  width: 100%;
+  min-height: 183px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 1;
+}
+
+.featureItem {
+  width: 100%;
+  min-height: 9px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  opacity: 1;
+  background: linear-gradient(0deg, #6e7378, #6e7378),
+    linear-gradient(115.41deg, #b7c1d4 17.07%, #5f646e 85.74%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #6e7378;
+}
+
+/* Button */
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Bouton: bordure en gradient via wrapper 1px */
+.buttonOuter {
+  width: 100%;
+  padding: 1px;
+  border-radius: 47px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    162.61deg,
+    rgba(90, 90, 90, 0.0154) 2.8%,
+    rgba(255, 255, 255, 0.77) 41.22%,
+    rgba(0, 0, 0, 0) 80.82%,
+    rgba(255, 255, 255, 0.0154) 100%
+  );
+}
+
+.button {
+  width: 100%;
+  height: 43px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 44px;
+  border-radius: 46px;
+  border: none;
+  /* Blanc : fond blanc en premier, puis reflets subtils */
+  background: linear-gradient(0deg, #ffffff, #ffffff),
+    linear-gradient(
+      180deg,
+      rgba(219, 232, 255, 0.25) 0%,
+      rgba(103, 123, 161, 0.25) 100%
+    ),
+    linear-gradient(90deg, #2a2a2c 0%, #222222 100%);
+  box-shadow: 0px 4px 11px 0px #00000040;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #171718;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Bouton dark "Personnalisez votre carte" : fond sombre, radius 7px */
+.buttonOuterDark {
+  width: 100%;
+  padding: 1px;
+  border-radius: 7px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    162.61deg,
+    rgba(90, 90, 90, 0.0154) 2.8%,
+    rgba(255, 255, 255, 0.77) 41.22%,
+    rgba(0, 0, 0, 0) 80.82%,
+    rgba(255, 255, 255, 0.0154) 100%
+  );
+}
+
+.buttonDark {
+  width: 100%;
+  height: 43px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 44px;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(90deg, #2a2a2c 0%, #222222 100%),
+    linear-gradient(93.1deg, #36363b 0%, #222222 99%);
+  box-shadow: 0px 4px 11px 0px #00000040;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 1;
+  white-space: nowrap;
+  line-height: 19px;
+}
+
+.deliveryText {
+  width: 100%;
+  min-height: 9px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  text-align: center;
+  opacity: 1;
+  background: linear-gradient(0deg, #6e7378, #6e7378),
+    linear-gradient(115.41deg, #b7c1d4 17.07%, #5f646e 85.74%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #6e7378;
+}
+
+@media (max-width: 380px) {
+  .card {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
