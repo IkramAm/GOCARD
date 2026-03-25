@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/costumize", "destination": "/index.html" },
+    { "source": "/costumize/:path*", "destination": "/index.html" },
+    { "source": "/profile", "destination": "/index.html" },
+    { "source": "/profile/:path*", "destination": "/index.html" }
+  ]
+}
