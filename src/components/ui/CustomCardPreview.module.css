@@ -1,0 +1,736 @@
+/* WRAPPER POUR GLOW EXTERNE */
+.wrapper {
+  position: relative;
+  display: inline-block;
+  width: min(100%, 400px);
+}
+
+/* LUMIERE DERRIERE LA CARTE */
+.bgGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 135%;
+  height: 135%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18), rgba(255,255,255,0.06) 42%, transparent 68%),
+    radial-gradient(circle at 50% 54%, rgba(110,160,255,0.09), transparent 72%);
+  filter: blur(30px);
+  opacity: 0.95;
+  z-index: 0;
+}
+
+/* ================= CARD ================= */
+
+.card {
+  position: relative;
+
+  width: min(100%, 400px);
+  aspect-ratio: 1.585;
+
+  border-radius: clamp(16px, 2vw, 22px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  padding: clamp(18px, 3.2vw, 32px);
+  z-index: 1;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 0 22px rgba(140, 180, 255, 0.16),
+    0 20px 80px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255,255,255,0.14),
+    inset 0 0 22px rgba(255,255,255,0.06),
+    inset 0 -1px 0 rgba(0,0,0,0.6);
+
+  transition: all 0.4s ease;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -44%;
+  width: 36%;
+  height: 100%;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: card-sheen 3.9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ================= COLORS ================= */
+
+.black {
+  background:
+    linear-gradient(150deg, #090909 0%, #101010 32%, #2b2b2b 50%, #121212 68%, #0c0c0c 100%),
+    radial-gradient(circle at 18% 10%, rgba(255, 255, 255, 0.06), transparent 44%);
+  color: #fff;
+}
+
+/* Ultra luxurious finish for the black card */
+.card.black {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 10px 34px rgba(0, 0, 0, 0.46),
+    0 24px 70px rgba(0, 0, 0, 0.84),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.85),
+    inset 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+.card.black::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.16), transparent 36%),
+    radial-gradient(circle at 86% 78%, rgba(255, 255, 255, 0.08), transparent 44%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.1), transparent 40%, rgba(255, 255, 255, 0.08) 92%),
+    repeating-linear-gradient(
+      -24deg,
+      rgba(255, 255, 255, 0.035) 0px,
+      rgba(255, 255, 255, 0.035) 1px,
+      rgba(0, 0, 0, 0) 1px,
+      rgba(0, 0, 0, 0) 9px
+    );
+  background-size: 100% 100%, 100% 100%, 200% 200%, 180% 180%;
+  background-position: center, center, 0% 50%, 48% 52%;
+  mix-blend-mode: screen;
+  opacity: 0.78;
+  animation: black-surface-shift 8.6s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.card.black::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.26), transparent);
+}
+
+.white {
+  background:
+    linear-gradient(148deg, #ced4df 0%, #bcc4d2 38%, #e7ebf3 100%),
+    radial-gradient(circle at 14% 8%, rgba(255,255,255,0.44), transparent 42%);
+  color: #1f2430;
+}
+
+/* Extra premium finish for the white card */
+.card.white {
+  border-color: rgba(245, 248, 255, 0.82);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.28),
+    0 10px 34px rgba(169, 187, 224, 0.26),
+    0 24px 64px rgba(21, 31, 49, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.84),
+    inset 0 -1px 0 rgba(137, 153, 184, 0.36),
+    inset 0 0 36px rgba(255, 255, 255, 0.24);
+}
+
+.card.white::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.62), transparent 34%),
+    radial-gradient(circle at 82% 74%, rgba(154, 180, 235, 0.3), transparent 46%),
+    linear-gradient(158deg, rgba(255, 255, 255, 0.22), transparent 42%, rgba(122, 146, 193, 0.14) 92%),
+    repeating-linear-gradient(
+      -24deg,
+      rgba(255, 255, 255, 0.07) 0px,
+      rgba(255, 255, 255, 0.07) 2px,
+      rgba(255, 255, 255, 0) 2px,
+      rgba(255, 255, 255, 0) 9px
+    );
+  background-size: 100% 100%, 100% 100%, 200% 200%, 180% 180%;
+  background-position: center, center, 0% 50%, 50% 50%;
+  mix-blend-mode: soft-light;
+  opacity: 0.95;
+  animation: white-surface-shift 9s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.card.white::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+}
+
+.gold {
+  background:
+    linear-gradient(148deg, #4a3308 0%, #d1ac56 42%, #7a5512 100%),
+    radial-gradient(circle at 18% 10%, rgba(255, 228, 164, 0.32), transparent 44%);
+  color: #fff6da;
+}
+
+/* Ultra luxurious finish for the gold card */
+.card.gold {
+  border-color: rgba(255, 224, 156, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(255, 223, 148, 0.2),
+    0 10px 34px rgba(145, 98, 28, 0.24),
+    0 24px 70px rgba(0, 0, 0, 0.64),
+    inset 0 1px 0 rgba(255, 240, 200, 0.34),
+    inset 0 -1px 0 rgba(69, 43, 8, 0.64),
+    inset 0 0 34px rgba(255, 216, 130, 0.13);
+}
+
+.card.gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 13%, rgba(255, 232, 178, 0.34), transparent 36%),
+    radial-gradient(circle at 84% 79%, rgba(255, 198, 92, 0.2), transparent 45%),
+    linear-gradient(160deg, rgba(255, 243, 208, 0.16), transparent 42%, rgba(154, 104, 25, 0.2) 92%),
+    repeating-linear-gradient(
+      -24deg,
+      rgba(255, 220, 145, 0.07) 0px,
+      rgba(255, 220, 145, 0.07) 1px,
+      rgba(0, 0, 0, 0) 1px,
+      rgba(0, 0, 0, 0) 9px
+    );
+  background-size: 100% 100%, 100% 100%, 200% 200%, 180% 180%;
+  background-position: center, center, 0% 50%, 48% 50%;
+  mix-blend-mode: screen;
+  opacity: 0.50;
+  animation: gold-surface-shift 8.8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.card.gold::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 228, 160, 0.36), transparent);
+}
+
+/* ================= REFLECTION ================= */
+
+.light {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg,
+      transparent 20%,
+      rgba(255,255,255,0.15) 40%,
+      transparent 60%
+    );
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ================= CENTER LOGO ================= */
+
+.centerLogo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* ================= COMPANY TOP (fixed placement) ================= */
+
+.companyTop {
+  position: absolute;
+  top: clamp(14px, 2.4vw, 20px);
+  left: clamp(14px, 2.8vw, 24px);
+  max-width: min(62%, 240px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.companyTop .company {
+  line-height: 1.25;
+}
+
+.companyTopDarkOnGold .company {
+  color: #1c1c1c;
+  opacity: 0.9;
+  text-shadow: none;
+}
+
+/* ================= IDENTITY (fixed placement) ================= */
+
+.identity {
+  position: absolute;
+  bottom: clamp(14px, 2.4vw, 20px);
+  left: clamp(14px, 2.8vw, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ================= ZONES (placement libre) ================= */
+
+.zoneStack {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5px, 1vw, 9px);
+  pointer-events: none;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.zoneCenter {
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(12px, 2vw, 20px);
+}
+
+.zoneCenter .name,
+.zoneCenter .role,
+.zoneCenter .company {
+  max-width: min(92%, 300px);
+}
+
+.zoneCenterLogoOnly {
+  z-index: 1;
+}
+
+.zoneTopLeft {
+  top: clamp(12px, 2.2vw, 20px);
+  left: clamp(12px, 2.6vw, 22px);
+  align-items: flex-start;
+  text-align: left;
+  max-width: min(58%, 220px);
+}
+
+.zoneTopRight {
+  top: clamp(12px, 2.2vw, 20px);
+  right: clamp(12px, 2.6vw, 22px);
+  align-items: flex-end;
+  text-align: right;
+  max-width: min(58%, 220px);
+}
+
+.zoneTopCenter {
+  top: clamp(12px, 2.2vw, 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  text-align: center;
+  max-width: min(88%, 280px);
+}
+
+.zoneBottomLeft {
+  bottom: clamp(12px, 2.2vw, 20px);
+  left: clamp(12px, 2.6vw, 22px);
+  align-items: flex-start;
+  text-align: left;
+  max-width: min(58%, 240px);
+}
+
+.zoneBottomRight {
+  bottom: clamp(12px, 2.2vw, 20px);
+  right: clamp(12px, 2.6vw, 22px);
+  align-items: flex-end;
+  text-align: right;
+  max-width: min(58%, 240px);
+}
+
+.zoneBottomCenter {
+  bottom: clamp(12px, 2.2vw, 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  text-align: center;
+  max-width: min(88%, 300px);
+}
+
+.logoZoneInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.logoZoneInnerCompact {
+  width: 100%;
+}
+
+.logoFrameCorner {
+  width: min(50%, 168px) !important;
+  max-width: 58% !important;
+  max-height: 30% !important;
+  padding: clamp(4px, 0.9vw, 8px) !important;
+}
+
+.logoPlaceholderCompact {
+  font-size: clamp(14px, 2vw, 22px) !important;
+  letter-spacing: 0.4px;
+}
+
+.logoFrame {
+  width: min(62%, 246px);
+  max-width: 74%;
+  aspect-ratio: 3 / 1;
+  max-height: 38%;
+  padding: clamp(6px, 1.2vw, 10px) clamp(10px, 1.8vw, 14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.logoFrameDefault {
+  width: min(62%, 246px);
+  max-width: 74%;
+  aspect-ratio: 3 / 1;
+  max-height: 38%;
+}
+
+.logoFrameWide {
+  width: min(68%, 268px);
+  max-width: 80%;
+  aspect-ratio: 3.8 / 1;
+  max-height: 34%;
+}
+
+.logoFrameSquare {
+  width: min(52%, 206px);
+  max-width: 62%;
+  aspect-ratio: 1.5 / 1;
+  max-height: 40%;
+}
+
+.logoFrameTall {
+  width: min(44%, 170px);
+  max-width: 54%;
+  aspect-ratio: 1 / 1.2;
+  max-height: 46%;
+}
+
+/* IMAGE LOGO */
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.95;
+  filter: drop-shadow(0 1px 8px rgba(0, 0, 0, 0.35));
+}
+
+.logoMask {
+  width: 100%;
+  height: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.logoMaskWhite {
+  background-color: #f8fbff;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.18));
+}
+
+.logoMaskDark {
+  background-color: #101218;
+  filter: drop-shadow(0 1px 8px rgba(0, 0, 0, 0.28));
+}
+
+.logoNeutralTone {
+  filter: drop-shadow(0 1px 8px rgba(0, 0, 0, 0.35));
+}
+
+.logoOnDarkCard {
+  filter:
+    brightness(1.4)
+    contrast(1.28)
+    saturate(1.12)
+    drop-shadow(0 0 7px rgba(255, 255, 255, 0.26));
+}
+
+.logoOnLightCard {
+  filter:
+    brightness(0.76)
+    contrast(1.28)
+    saturate(1.06)
+    drop-shadow(0 1px 8px rgba(11, 16, 28, 0.26));
+}
+
+.logoOnGoldCard {
+  filter:
+    brightness(1.18)
+    contrast(1.24)
+    saturate(1.08)
+    drop-shadow(0 1px 10px rgba(44, 27, 0, 0.35));
+}
+
+/* TEXTE LOGO (GRAVURE) */
+.logoPlaceholder {
+  font-size: clamp(20px, 2.8vw, 28px);
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #dbe2f1;
+
+  /* effet gravure */
+  text-shadow:
+    0 1px 1px rgba(255,255,255,0.15),
+    0 -1px 1px rgba(0,0,0,0.6);
+}
+
+.logoPlaceholderAutoLight {
+  color: #f8fbff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.logoPlaceholderAutoDark {
+  color: #111317 !important;
+  text-shadow: none;
+}
+
+/* ================= TEXT ================= */
+
+.name {
+  margin: 0;
+  font-size: clamp(15px, 2.2vw, 18px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.role {
+  margin: 0;
+  font-size: clamp(10px, 1.5vw, 12px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+
+.company {
+  margin: 0;
+  font-size: clamp(10px, 1.5vw, 12px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.86;
+}
+
+/* ================= TEXT CREATIVE PER COLOR ================= */
+
+.black .logoPlaceholder {
+  color: #bcc9de;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.26),
+    0 4px 10px rgba(0,0,0,0.36),
+    0 12px 28px rgba(0,0,0,0.56);
+}
+
+.black .name {
+  color: #f4f7ff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.black .role {
+  color: #c5cfde;
+}
+
+.black .company {
+  color: #d4ddef;
+}
+
+.white .logoPlaceholder {
+  color: #4e5a74;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.58),
+    0 8px 18px rgba(92, 109, 145, 0.28);
+}
+
+.white .name {
+  color: #283247;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.white .role {
+  color: #5f6d89;
+  opacity: 0.95;
+}
+
+.white .company {
+  color: #4d5a75;
+}
+
+.gold .logoPlaceholder {
+  color: #e6c681;
+  text-shadow:
+    0 1px 0 rgba(255, 239, 195, 0.45),
+    0 10px 22px rgba(46, 28, 0, 0.45);
+}
+
+.gold .name {
+  color: #fff0c8;
+  text-shadow: 0 2px 10px rgba(42, 24, 0, 0.44);
+}
+
+.gold .role {
+  color: #f2d388;
+  opacity: 0.9;
+}
+
+.gold .company {
+  color: #ffe1a2;
+  opacity: 0.92;
+}
+
+.identityDarkOnGold .name {
+  color: #121212;
+  text-shadow: 0 1px 0 rgba(255, 239, 202, 0.32);
+}
+
+.identityDarkOnGold .role {
+  color: #1e1e1e;
+  opacity: 0.85;
+  text-shadow: none;
+}
+
+.identityDarkOnGold .company {
+  color: #1c1c1c;
+  opacity: 0.9;
+  text-shadow: none;
+}
+
+/* ================= HOVER ================= */
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+@keyframes card-sheen {
+  0%,
+  20% {
+    left: -44%;
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  60%,
+  100% {
+    left: 126%;
+    opacity: 0;
+  }
+}
+
+@keyframes white-surface-shift {
+  0% {
+    background-position: center, center, 0% 50%, 45% 45%;
+  }
+  100% {
+    background-position: center, center, 100% 50%, 58% 56%;
+  }
+}
+
+@keyframes black-surface-shift {
+  0% {
+    background-position: center, center, 0% 50%, 48% 52%;
+  }
+  100% {
+    background-position: center, center, 100% 50%, 60% 46%;
+  }
+}
+
+@keyframes gold-surface-shift {
+  0% {
+    background-position: center, center, 0% 50%, 48% 50%;
+  }
+  100% {
+    background-position: center, center, 100% 50%, 59% 54%;
+  }
+}
+
+/* ================= DESKTOP LARGE ================= */
+
+@media (min-width: 1200px) {
+  .card {
+    width: min(100%, 550px);
+  }
+
+  .bgGlow {
+    width: 145%;
+    height: 145%;
+    filter: blur(40px);
+  }
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px) {
+  .wrapper {
+    width: min(100%, 400px);
+  }
+
+  .card {
+    width: min(100%, 330px);
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 480px) {
+  .wrapper {
+    width: 100%;
+  }
+
+  .card {
+    width: min(100%, 300px);
+    margin: 0 auto;
+  }
+
+  .logoPlaceholder {
+    letter-spacing: 0.3px;
+  }
+
+  .logoFrame {
+    width: min(68%, 210px);
+    max-height: 38%;
+    padding: 6px 10px;
+  }
+
+  .logoFrameWide {
+    width: min(76%, 228px);
+    max-width: 84%;
+    aspect-ratio: 3.8 / 1;
+    max-height: 34%;
+  }
+
+  .logoFrameSquare {
+    width: min(58%, 174px);
+    max-width: 66%;
+    aspect-ratio: 1.5 / 1;
+    max-height: 42%;
+  }
+
+  .logoFrameTall {
+    width: min(48%, 148px);
+    max-width: 56%;
+    aspect-ratio: 1 / 1.2;
+    max-height: 48%;
+  }
+
+  .name {
+    font-weight: 600;
+  }
+
+  .role {
+    opacity: 0.75;
+  }
+}
+
+/* Better UX on touch devices */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.gold::before,
+  .card.black::before,
+  .card.white::before,
+  .card::after {
+    animation: none;
+  }
+}

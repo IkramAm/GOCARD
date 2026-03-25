@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Button } from '../ui/Button';
 import styles from './Header.module.css';
+import logoGoCardWhite from '../../assets/logo/logo-GOCard-White.png';
 
 const navLinks = [
-  { label: 'Comment ça marche', href: '#how-it-works' },
-  { label: 'Avis', href: '#reviews' },
-  { label: 'Tarifs', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Comment ça marche', href: '/#how-it-works' },
+  { label: 'Avis', href: '/#reviews' },
+  { label: 'Tarifs', href: '/#pricing' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
 export function Header() {
@@ -17,7 +18,7 @@ export function Header() {
   return (
     <header className={`${styles.header} ${isMenuOpen ? styles.menuOpen : ''}`}>
       <a href="/" className={styles.logo}>
-        GoCard
+        <img className={styles.logoImage} src={logoGoCardWhite} alt="GoCard" />
       </a>
 
       <button
@@ -48,7 +49,7 @@ export function Header() {
       <Button
         variant="primary"
         as="a"
-        href="#contact"
+        href="/#contact"
         className={styles.ctaButton}
         onClick={closeMenu}
       >

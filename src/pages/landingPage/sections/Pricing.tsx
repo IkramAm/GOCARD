@@ -2,13 +2,13 @@ import PrincingCard from '../../../components/ui/PrincingCard';
 import styles from './Pricing.module.css';
 
 const SHARED_FEATURES = [
-  'Custom colors — Black, White, or Silver',
-  'Your logo laser-etched on the card',
-  'White-label profile page',
-  'NFC + QR code dual activation',
-  'Unlimited social & link blocks',
-  'Advanced analytics + lead capture',
-  'Priority production + shipping',
+  'Couleurs personnalisees — Noir, Blanc ou Argent',
+  'Votre logo grave au laser sur la carte',
+  'Page de profil en marque blanche',
+  'Activation double NFC + QR code',
+  'Blocs sociaux et liens illimites',
+  'Analyses avancees + capture de leads',
+  'Production et livraison prioritaires',
 ];
 
 function PencilIcon() {
@@ -37,18 +37,19 @@ export function Pricing() {
       className={styles.section}
       id="pricing"
       aria-labelledby="pricing-heading"
+      data-reveal
     >
-      <div className={styles.textBlock}>
-        <p className={styles.label}>PRICING</p>
-        <h2 id="pricing-heading" className={styles.title}>
-          Choose Your Card.
+      <div className={`${styles.textBlock} reveal-item`}>
+        <p className={`${styles.label} reveal-item`}>TARIFS</p>
+        <h2 id="pricing-heading" className={`${styles.title} reveal-item`}>
+          Choisissez votre carte.
         </h2>
-        <p className={styles.subtitle}>
-          One-time payment. No subscriptions. Ships in 48h
+        <p className={`${styles.subtitle} reveal-item`}>
+          Paiement unique. Aucun abonnement. Expedition sous 48 h
         </p>
       </div>
 
-      <div className={styles.cards}>
+      <div className={`${styles.cards} reveal-item`}>
         <PrincingCard
           planName="Basic"
           price="190dh"
@@ -57,20 +58,24 @@ export function Pricing() {
           features={SHARED_FEATURES}
           buttonText="Acheter Basic"
           deliveryText="livraison en 1 à 2 jours"
-          onBuy={() => {}}
+          onBuy={() => {
+            window.location.href = '/costumize/details';
+          }}
         />
         <PrincingCard
           planName="Personnalisée"
           price="290dh"
           oldPrice="370 dh"
-          badgeLabel="MOST POPULAR"
+          badgeLabel="LE PLUS POPULAIRE"
           cardPreviewVariant="logo"
           features={SHARED_FEATURES}
           buttonText="Personnalisez votre carte"
           buttonVariant="dark"
           buttonIcon={<PencilIcon />}
           deliveryText="livraison en 1 à 2 jours"
-          onBuy={() => {}}
+          onBuy={() => {
+            window.location.href = '/costumize';
+          }}
         />
       </div>
     </section>

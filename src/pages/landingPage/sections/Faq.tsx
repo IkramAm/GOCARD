@@ -3,46 +3,46 @@ import styles from './Faq.module.css'
 
 const FAQ_ITEMS = [
   {
-    question: 'Does the other person need an app?',
+    question: "L'autre personne a-t-elle besoin d'une application ?",
     answer:
-      'No. GoCard uses NFC technology built into 99% of modern smartphones. They tap your card and your profile opens instantly in their browser. No app, no setup - it just works.',
+      "Non. GoCard utilise la technologie NFC integree a 99 % des smartphones modernes. La personne touche votre carte et votre profil s'ouvre instantanement dans son navigateur. Aucune application, aucune configuration - ca fonctionne directement.",
   },
   {
-    question: 'Can I edit my profile after sharing my card?',
+    question: 'Puis-je modifier mon profil apres avoir partage ma carte ?',
     answer:
-      'Yes. You can update links, contact info, and content anytime from your dashboard, and changes appear instantly everywhere your card is used.',
+      'Oui. Vous pouvez mettre a jour vos liens, vos coordonnees et votre contenu a tout moment depuis votre tableau de bord, et les changements apparaissent instantanement partout ou votre carte est utilisee.',
   },
   {
-    question: 'Do you ship internationally?',
+    question: 'Livrez-vous a l’international ?',
     answer:
-      'Yes. We ship worldwide with tracking. Delivery timing depends on your destination and selected shipping method.',
+      "Oui. Nous livrons dans le monde entier avec suivi. Le delai de livraison depend de votre destination et du mode d'expedition selectionne.",
   },
   {
-    question: 'Can I add my company logo and colors?',
+    question: "Puis-je ajouter le logo et les couleurs de mon entreprise ?",
     answer:
-      'Absolutely. You can personalize your card design with your brand identity and keep a professional, consistent look.',
+      "Absolument. Vous pouvez personnaliser le design de votre carte avec votre identite de marque et conserver une apparence professionnelle et coherente.",
   },
   {
-    question: 'What if I lose my card?',
+    question: 'Que faire si je perds ma carte ?',
     answer:
-      'You can deactivate the lost card and activate a replacement while keeping your existing profile and links.',
+      'Vous pouvez desactiver la carte perdue et en activer une de remplacement tout en conservant votre profil et vos liens existants.',
   },
 ]
 
 export function Faq() {
   return (
-    <section className={styles.section} id="faq" aria-labelledby="faq-heading">
-      <div className={styles.textBlock}>
-        <p className={styles.label}>QUESTIONS</p>
-        <h2 id="faq-heading" className={styles.title}>
-          Clear Answers.
+    <section className={styles.section} id="faq" aria-labelledby="faq-heading" data-reveal>
+      <div className={`${styles.textBlock} reveal-item`}>
+        <p className={`${styles.label} reveal-item`}>QUESTIONS</p>
+        <h2 id="faq-heading" className={`${styles.title} reveal-item`}>
+          Reponses claires.
         </h2>
-        <p className={styles.subtitle}>
-          Everything you need to know about stepping up your networking game.
+        <p className={`${styles.subtitle} reveal-item`}>
+          Tout ce que vous devez savoir pour passer au niveau superieur dans votre networking.
         </p>
       </div>
 
-      <div className={styles.cards}>
+      <div className={`${styles.cards} reveal-item`}>
         {FAQ_ITEMS.map((item, index) => (
           <FAQCard
             key={item.question + index}

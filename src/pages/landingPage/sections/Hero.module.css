@@ -167,20 +167,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 60px;
+}
+
+.mobileCardBlock {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Ratio scène Spline 1030×930 = tout le cadre visible sans coupure */
 .card3d {
   --spline-scale: 0.408; /* 420/1030 pour afficher la scène en entier */
+  --card-inner-inset: 14px;
   position: relative;
-  width: 420px;
+  width: 450px;
   aspect-ratio: 1030 / 930;
-  min-height: 300px;
+  min-height: 325px;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
- /* box-shadow: 0px 4px 55px 0px rgba(255, 255, 255, 0.11); */
   border-radius: 12px;
+}
+
+.card3d canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  filter:
+    drop-shadow(0 0 12px rgba(255, 255, 255, 0.16))
+    drop-shadow(0 0 28px rgba(255, 255, 255, 0.1));
 }
 
 .partnersBar {
@@ -230,6 +246,10 @@
     align-items: center;
   }
 
+  .rightBlock {
+    margin-left: 0;
+  }
+
   .headline1 {
     font-size: 56px;
   }
@@ -255,9 +275,9 @@
   .card3d {
     --spline-scale: 0.388; /* ~400/1030 pour mobile */
     width: 100%;
-    max-width: 400px;
+    max-width: 430px;
     aspect-ratio: 1030 / 930;
-    min-height: 320px;
+    min-height: 335px;
   }
 
   .partnersInner {
@@ -269,7 +289,7 @@
 
 @media (max-width: 768px) {
   .card3d {
-    min-height: 300px;
+    min-height: 315px;
   }
   .heroContent {
     gap: 32px;
@@ -354,7 +374,7 @@
 
   .card3d {
     --spline-scale: 0.34;
-    max-width: 340px;
-    min-height: 260px;
+    max-width: 360px;
+    min-height: 275px;
   }
 }

@@ -1,0 +1,43 @@
+.page {
+  min-height: 100vh;
+  background: radial-gradient(120% 90% at 0% 0%, #222834 0%, #0a0c11 45%, #05070b 100%);
+  padding: 28px 18px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.layout {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.sidebarWrap {
+  position: static;
+  align-self: start;
+  width: min(430px, 100%);
+  margin: 0 auto;
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .page {
+    padding: 20px 14px;
+  }
+
+  .sidebarWrap {
+    width: min(420px, 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 0;
+  }
+
+  .sidebarWrap {
+    width: 100%;
+  }
+}

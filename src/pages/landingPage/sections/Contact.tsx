@@ -3,19 +3,21 @@ import styles from './Contact.module.css'
 
 export function Contact() {
   return (
-    <section className={styles.section} id="contact" aria-labelledby="contact-heading">
-      <div className={styles.textBlock}>
-        <p className={styles.label}>CONNECT</p>
-        <h2 id="contact-heading" className={styles.title}>
-          Get in Touch.
+    <section className={styles.section} id="contact" aria-labelledby="contact-heading" data-reveal>
+      <div className={`${styles.textBlock} reveal-item`}>
+        <p className={`${styles.label} reveal-item`}>CONTACT</p>
+        <h2 id="contact-heading" className={`${styles.title} reveal-item`}>
+          Prenez contact.
         </h2>
-        <p className={styles.subtitle}>
-          Have questions or need a custom solution for your team? Our experts are here to help
-          you own every introduction.
+        <p className={`${styles.subtitle} reveal-item`}>
+          Vous avez des questions ou besoin d'une solution sur mesure pour votre equipe ? Nos experts
+          sont la pour vous aider a reussir chaque prise de contact.
         </p>
       </div>
 
-      <ContactCard />
+      <div className="reveal-item">
+        <ContactCard />
+      </div>
     </section>
   )
 }

@@ -1,27 +1,28 @@
 import styles from './Footer.module.css'
+import logoGoCardWhite from '../../assets/logo/logo-GOCard-White.png';
 
 const productLinks = [
-  { label: 'Standard Card', href: '#pricing' },
-  { label: 'Pro Card', href: '#pricing' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Bulk Orders', href: '#contact' },
+  { label: 'Carte Standard', href: '#pricing' },
+  { label: 'Carte Pro', href: '#pricing' },
+  { label: 'Comment ca marche', href: '#how-it-works' },
+  { label: 'Tarifs', href: '#pricing' },
+  { label: 'Commandes en lot', href: '#contact' },
 ]
 
 const resourceLinks = [
-  { label: 'Help Center', href: '#' },
+  { label: "Centre d'aide", href: '#' },
   { label: 'Blog', href: '#' },
-  { label: 'API Docs', href: '#' },
-  { label: 'Case Studies', href: '#' },
-  { label: 'Status', href: '#' },
+  { label: "Documentation API", href: '#' },
+  { label: 'Etudes de cas', href: '#' },
+  { label: 'Statut', href: '#' },
 ]
 
 const companyLinks = [
-  { label: 'About Us', href: '#' },
-  { label: 'Careers', href: '#' },
+  { label: 'A propos', href: '#' },
+  { label: 'Carrieres', href: '#' },
   { label: 'Contact', href: '#contact' },
-  { label: 'Legal', href: '#' },
-  { label: 'Privacy', href: '#' },
+  { label: 'Mentions legales', href: '#' },
+  { label: 'Confidentialite', href: '#' },
 ]
 
 const socialLinks = [
@@ -59,10 +60,12 @@ export function Footer() {
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <h2 className={styles.brandName}>GoCard</h2>
+            <h2 className={styles.brandName}>
+              <img className={styles.brandLogo} src={logoGoCardWhite} alt="GoCard" />
+            </h2>
             <p className={styles.brandText}>
-              The world&apos;s most premium NFC smart business card. One tap to share your entire
-              professional identity instantly.
+              La carte de visite NFC intelligente la plus premium au monde. Un seul contact pour
+              partager instantanement toute votre identite professionnelle.
             </p>
 
             <ul className={styles.socials}>
@@ -76,29 +79,29 @@ export function Footer() {
             </ul>
           </div>
 
-          <LinkColumn title="Product" links={productLinks} />
-          <LinkColumn title="Resources" links={resourceLinks} />
-          <LinkColumn title="Company" links={companyLinks} />
+          <LinkColumn title="Produit" links={productLinks} />
+          <LinkColumn title="Ressources" links={resourceLinks} />
+          <LinkColumn title="Entreprise" links={companyLinks} />
         </div>
       </div>
 
       <div className={styles.bottom}>
         <div className={`${styles.container} ${styles.bottomInner}`}>
-          <p className={styles.copyright}>© 2026 GoCard Inc. All rights reserved.</p>
+          <p className={styles.copyright}>© 2026 GoCard Inc. Tous droits reserves.</p>
           <ul className={styles.legal}>
             <li>
               <a className={styles.link} href="#">
-                Privacy Policy
+                Politique de confidentialite
               </a>
             </li>
             <li>
               <a className={styles.link} href="#">
-                Terms of Service
+                Conditions d'utilisation
               </a>
             </li>
             <li>
               <a className={styles.link} href="#">
-                Cookie Settings
+                Parametres des cookies
               </a>
             </li>
           </ul>

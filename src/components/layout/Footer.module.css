@@ -30,6 +30,13 @@
   color: #eef2fb;
 }
 
+.brandLogo {
+  display: block;
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
 .brandText {
   margin: 18px 0 0;
   font-family: 'Inter', sans-serif;
@@ -163,6 +170,10 @@
 
   .brand {
     grid-column: 1 / -1;
+  }
+
+  .brandLogo {
+    height: 34px;
   }
 
   .bottomInner {

@@ -4,23 +4,23 @@ import styles from './Reviews.module.css';
 const REVIEWS = [
   {
     quote:
-      "The analytics alone are worth it. I know exactly who's viewing my profile and how they found me. Game changer for lead gen.",
+      "Les analyses a elles seules valent le coup. Je sais exactement qui consulte mon profil et comment ils m'ont trouve. Un vrai game changer pour la generation de leads.",
     name: 'Ali Hraich',
-    role: 'VP of Marketing, DigitalEdge',
+    role: 'VP Marketing, DigitalEdge',
     avatarSrc: 'https://i.pravatar.cc/64?img=12',
   },
   {
     quote:
-      "The analytics alone are worth it. I know exactly who's viewing my profile and how they found me. Game changer for lead gen.",
+      "Les analyses a elles seules valent le coup. Je sais exactement qui consulte mon profil et comment ils m'ont trouve. Un vrai game changer pour la generation de leads.",
     name: 'Ali Hraich',
-    role: 'VP of Marketing, DigitalEdge',
+    role: 'VP Marketing, DigitalEdge',
     avatarSrc: 'https://i.pravatar.cc/64?img=12',
   },
   {
     quote:
-      "The analytics alone are worth it. I know exactly who's viewing my profile and how they found me. Game changer for lead gen.",
+      "Les analyses a elles seules valent le coup. Je sais exactement qui consulte mon profil et comment ils m'ont trouve. Un vrai game changer pour la generation de leads.",
     name: 'Ali Hraich',
-    role: 'VP of Marketing, DigitalEdge',
+    role: 'VP Marketing, DigitalEdge',
     avatarSrc: 'https://i.pravatar.cc/64?img=12',
   },
 ];
@@ -31,18 +31,19 @@ export function Reviews() {
       className={styles.section}
       id="reviews"
       aria-labelledby="reviews-heading"
+      data-reveal
     >
-      <div className={styles.textBlock}>
-        <p className={styles.label}>TRUSTED BY LEADERS</p>
-        <h2 id="reviews-heading" className={styles.title}>
-          They Tapped. They Conquered.
+      <div className={`${styles.textBlock} reveal-item`}>
+        <p className={`${styles.label} reveal-item`}>ILS NOUS FONT CONFIANCE</p>
+        <h2 id="reviews-heading" className={`${styles.title} reveal-item`}>
+          Ils ont scanne. Ils ont reussi.
         </h2>
-        <p className={styles.subtitle}>
-          Join thousands of professionals who&apos;ve upgraded how they connect.
+        <p className={`${styles.subtitle} reveal-item`}>
+          Rejoignez des milliers de professionnels qui ont ameliore leur facon de creer des contacts.
         </p>
       </div>
 
-      <div className={styles.cards}>
+      <div className={`${styles.cards} reveal-item`}>
         {REVIEWS.map((review, index) => (
           <TestimonialsCard
             key={index}
